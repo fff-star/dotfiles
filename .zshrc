@@ -129,8 +129,10 @@ unset key
 # }}} End configuration added by Zim Framework install
 
 # Created by newuser for 5.9
-source ~/.fzf.zsh
 
+# fzf
+eval "$(fzf --zsh)"
+# yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
 	yazi "$@" --cwd-file="$tmp"
@@ -138,3 +140,11 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+alias vim="vimx"
+# flatpak aliases
+alias obs="flatpak run com.obsproject.Studio"
+alias steam="flatpak run com.valvesoftware.Steam"
+alias term="termusic"
+alias ls="eza --icons"
+alias cat="bat"
+[ -f "/home/fff/.ghcup/env" ] && . "/home/fff/.ghcup/env" # ghcup-env
