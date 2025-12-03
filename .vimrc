@@ -6,7 +6,7 @@ Plug 'chriszarate/yazi.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'neoclide/coc.nvim'
+Plug 'neoclide/coc.nvim' , {'branch': 'release'}
 Plug 'easymotion/vim-easymotion'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
@@ -15,6 +15,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 call plug#end()
 set number
 set nocompatible
+set shortmess+=I
 set relativenumber
 set expandtab
 set tabstop=4
@@ -29,6 +30,7 @@ set smartcase
 set ignorecase
 set termguicolors
 set updatetime=300
+set clipboard=unnamedplus
 syntax enable
 set background=dark
 colorscheme gruvbox
@@ -205,9 +207,6 @@ let g:mkdp_port = ''
 " preview page title
 " ${name} will be replace with the file name
 let g:mkdp_page_title = '「${name}」'
-
-" use a custom location for images
-let g:mkdp_images_path = "/home/fff/.markdown_images"
 
 " recognized filetypes
 " these filetypes will have MarkdownPreview... commands
