@@ -129,9 +129,12 @@ unset key
 # }}} End configuration added by Zim Framework install
 
 # Created by newuser for 5.9
-
+#zoxide
+eval "$(zoxide init zsh)"
 # fzf
 eval "$(fzf --zsh)"
+#starship
+eval "$(starship init zsh)"
 # yazi
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -140,6 +143,7 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+export PATH="/home/fff/.local/bin:$PATH"
 alias vim="vimx"
 # flatpak aliases
 alias obs="flatpak run com.obsproject.Studio"
@@ -147,4 +151,8 @@ alias steam="flatpak run com.valvesoftware.Steam"
 alias term="termusic"
 alias ls="eza --icons"
 alias cat="bat"
+alias "fzf-preview"="fzf --preview 'fzf-preview.sh {}'"
 [ -f "/home/fff/.ghcup/env" ] && . "/home/fff/.ghcup/env" # ghcup-env
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    fastfetch
+fi
