@@ -1,34 +1,41 @@
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the listed parsers MUST always be installed)
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline","rust" ,"cpp" },
 
--- https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.lua
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  -- sync_install = false,
 
--- Some servers have issues with backup files, see #649
-vim.opt.backup = false
-vim.opt.writebackup = false
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
 
--- Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
--- delays and poor user experience
-vim.opt.updatetime = 300
+  -- List of parsers to ignore installing (or "all")
+  -- ignore_install = { "javascript" },
 
--- Always show the signcolumn, otherwise it would shift the text each time
--- diagnostics appeared/became resolved
-vim.opt.signcolumn = "yes"
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
 
-local keyset = vim.keymap.set
--- Autocomplete
-function _G.check_back_space()
-    local col = vim.fn.col('.') - 1
-    return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') ~= nil
-end
+  highlight = {
+    enable = true,
 
--- Use Tab for trigger completion with characters ahead and navigate
--- NOTE: There's always a completion item selected by default, you may want to enable
--- no select by setting `"suggest.noselect": true` in your configuration file
--- NOTE: Use command ':verbose imap <tab>' to make sure Tab is not mapped by
--- other plugins before putting this into your config
-local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
-keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    -- disable = { "c", "rust" },
+    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    -- disable = function(lang, buf)
+    --    local max_filesize = 100 * 1024 -- 100 KB
+    --    local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    --    if ok and stats and stats.size > max_filesize then
+    --        return true
+    --    end
+    -- end,
 
--- Make <CR> to accept selected completion item or notify coc.nvim to format
--- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
