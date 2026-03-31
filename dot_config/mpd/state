@@ -1,0 +1,30 @@
+sw_volume: 50
+audio_device_state:1:PipeWire High-Res Output
+audio_device_state:1:Visualizer
+state: pause
+current: 11
+time: 157.06300000000002
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0
+mixrampdelay: -1
+lastloadedplaylist: 贝多芬第五交响曲
+playlist_begin
+0:陳奕迅/7. 陳奕迅 - 單車.flac
+1:陳奕迅/10.陳奕迅 - 龍舌蘭.flac
+2:陳奕迅/ 我們萬歲.flac
+3:陳奕迅/4. 陳奕迅 - 最佳損友.flac
+4:陳奕迅/11.陳奕迅 - 任我行.flac
+5:陳奕迅/6. 陳奕迅 - 任我行.flac
+6:陳奕迅/2. 陳奕迅 - 浮誇.flac
+7:陳奕迅/5. 陳奕迅 - 夕陽無限好.flac
+8:陳奕迅/12. 陳奕迅 - 白玫瑰.flac
+9:陳奕迅/1. 陳奕迅 - 富士山下.flac
+10:陳奕迅/3. 陳奕迅 - 陀飛輪.flac
+11:陳奕迅/13. 陳奕迅 - 讓我留在你身邊.flac
+12:陳奕迅/8. 陳奕迅 - 愛情轉移.flac
+13:陳奕迅/9. 陳奕迅 - 孤獨患者(國).flac
+playlist_end
