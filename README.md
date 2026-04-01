@@ -1,6 +1,6 @@
 # 🛠️ Dotfiles | ThinkPad T480s
 
-A minimal, keyboard-driven Wayland setup focused on Cryptography research and development. Managed by [chezmoi](https://www.chezmoi.io/).
+A minimal, keyboard-driven Wayland setup. Managed by [chezmoi](https://www.chezmoi.io/).
 
 ## 🖥️ Core Stack
 * **WM:** [niri](https://github.com/niri-wm/niri) (Scrollable-tiling compositor)
