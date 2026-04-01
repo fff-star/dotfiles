@@ -16,7 +16,7 @@ To deploy these configs on a new machine:
 
 ``` bash
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply [https://codeberg.org/fff-star/dotfiles.git](https://codeberg.org/fff-star/dotfiles.git)
-
 ```
+
 > [!CAUTION]
 > This command will overwrite existing configuration files in your $HOME directory. Back up your files before proceeding!
