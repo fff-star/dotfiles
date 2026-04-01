@@ -15,7 +15,7 @@ A minimal, keyboard-driven Wayland setup. Managed by [chezmoi](https://www.chezm
 To deploy these configs on a new machine:
 
 ``` bash
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply [https://codeberg.org/fff-star/dotfiles.git](https://codeberg.org/fff-star/dotfiles.git)
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://codeberg.org/fff-star/dotfiles.git
 ```
 
 > [!CAUTION]
