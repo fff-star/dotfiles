@@ -45,3 +45,4 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-n> :NERDTreeFocus<CR>
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 let g:airline_theme = 'catppuccin_mocha'
+let g:sneak#label = 1
