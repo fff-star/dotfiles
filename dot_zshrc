@@ -232,10 +232,10 @@ zle -N clear-screen scroll-top
 # usr set 
 export PATH="/home/fff/.local/bin:$PATH"
 export EDITOR="nvim"
-alias vi="nvim"
 # flatpak aliases
 alias obs="flatpak run com.obsproject.Studio"
 alias term="termusic"
+alias vim="vimx"
 alias ls="eza --icons"
 alias cat="bat"
 alias mv="mv -iv"

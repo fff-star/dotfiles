@@ -1,0 +1,47 @@
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-airline/vim-airline'
+Plug 'justinmk/vim-sneak'
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+call plug#end()
+set number
+set nocompatible
+set shortmess+=I
+set relativenumber
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set laststatus=2
+set smartindent
+set noerrorbells visualbell t_vb=
+set backspace=eol,start,indent
+set hidden
+set incsearch
+set smartcase
+set ignorecase
+set termguicolors
+set updatetime=300
+set clipboard=unnamedplus
+syntax enable
+set background=dark
+let mapleader=" "
+nnoremap Q <NOP>
+inoremap jk <ESC>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-n> :NERDTreeFocus<CR>
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
+let g:airline_theme = 'catppuccin_mocha'
