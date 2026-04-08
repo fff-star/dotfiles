@@ -18,5 +18,6 @@ vim.opt.updatetime = 300
 vim.opt.timeoutlen = 400
 vim.opt.foldlevel = 999
 vim.opt.clipboard = "unnamedplus"
+vim.opt.undofile=true
 vim.cmd("syntax enable")
 vim.diagnostic.config({ virtual_text = true })

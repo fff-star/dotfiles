@@ -12,6 +12,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'mbbill/undotree'
+Plug 'tpope/vim-surround'
 call plug#end()
 set number
 set nocompatible
@@ -42,7 +44,26 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-n> :NERDTreeFocus<CR>
+nnoremap <Leader>e :NERDTreeFocus<CR>
+nnoremap <Leader>ff :Files<CR> 
+nnoremap <Leader>fg :Rg<CR> 
+nnoremap <Leader>fu :UndotreeToggle<CR>
+xmap ys <Plug>Vsurround
+" set the theme : catppuccin_mocha
 let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 let g:airline_theme = 'catppuccin_mocha'
 let g:sneak#label = 1
+
+" set the undo files path
+if has("persistent_undo")
+    let target_path = expand('~/.local/state/vim/undo')
+
+    " create the directory and any parent directories
+    " if the location does not exist
+    if !isdirectory(target_path)
+        call mkdir(target_path,"p",0700)
+    endif 
+    
+    let &undodir=target_path
+    set undofile
+endif
