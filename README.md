@@ -1,4 +1,4 @@
-# 🛠️ Dotfiles | ThinkPad T480s
+# 🛠️ Dotfiles
 
 A minimal, keyboard-driven Wayland setup. Managed by [chezmoi](https://www.chezmoi.io/).
 
