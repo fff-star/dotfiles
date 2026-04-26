@@ -11,7 +11,7 @@ return {
                     mappings = {
                         add = 'ys',      -- Add surrounding in Normal and Visual modes
                         delete = 'ds',   -- Delete surrounding
-                        replace = 'rs',  -- Replace surrounding
+                        replace = 'cs',  -- Replace surrounding
                         find = '',        -- Find surrounding (to the right)
                         find_left = '',   -- Find surrounding (to the left)
                         highlight = '',   -- Highlight surrounding

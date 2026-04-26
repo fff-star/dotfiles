@@ -87,6 +87,12 @@ return {
 		})
 	),
 	s(
+		{ trig = "bb", condition = tex_utils.in_mathzone },
+		fmta("\\mathbb{<>}", {
+			d(1, get_visual),
+		})
+	),
+	s(
 		{ trig = "ca", condition = tex_utils.in_mathzone },
 		fmta("\\mathcal{<>}", {
 			d(1, get_visual),
