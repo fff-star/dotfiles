@@ -162,4 +162,55 @@ return {
 	s({ trig = ";l", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
 		t("\\lambda"),
 	}),
+	s({ trig = ";d", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\delta"),
+	}),
+	s({ trig = ";D", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\Delta"),
+	}),
+	s({ trig = ";f", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\phi"),
+	}),
+	s({ trig = ";F", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\Phi"),
+	}),
+	s({ trig = ";p", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\pi"),
+	}),
+	s({ trig = ";s", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\sigma"),
+	}),
+	s({ trig = ";S", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\Sigma"),
+	}),
+	s({ trig = ";o", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\omega"),
+	}),
+	s({ trig = ";O", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\Omega"),
+	}),
+	s({ trig = ";th", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\theta"),
+	}),
+	s({ trig = ";ve", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\varepsilon"),
+	}),
+	s({ trig = ";vf", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\varphi"),
+	}),
+	s({ trig = ";in", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\in"),
+	}),
+	s({ trig = ";ex", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\exists"),
+	}),
+	s({ trig = ";fa", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\forall"),
+	}),
+	s(
+		{ trig = "sr", condition = tex_utils.in_mathzone, snippetType = "autosnippet" },
+		fmta("\\sqrt{<>}", {
+			i(1),
+		})
+	),
 }
