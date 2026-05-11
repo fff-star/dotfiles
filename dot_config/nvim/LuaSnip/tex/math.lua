@@ -208,7 +208,7 @@ return {
 		t("\\forall"),
 	}),
 	s(
-		{ trig = "sr", condition = tex_utils.in_mathzone, snippetType = "autosnippet" },
+		{ trig = "sq", condition = tex_utils.in_mathzone, snippetType = "autosnippet" },
 		fmta("\\sqrt{<>}", {
 			i(1),
 		})
