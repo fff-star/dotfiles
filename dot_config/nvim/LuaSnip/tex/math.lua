@@ -175,7 +175,10 @@ return {
 		t("\\Phi"),
 	}),
 	s({ trig = ";p", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
-		t("\\pi"),
+		t("\\psi"),
+	}),
+	s({ trig = ";P", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\psi"),
 	}),
 	s({ trig = ";s", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
 		t("\\sigma"),
@@ -201,12 +204,25 @@ return {
 	s({ trig = ";in", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
 		t("\\in"),
 	}),
-	s({ trig = ";ex", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
-		t("\\exists"),
+	s({ trig = "leq", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\leqslant"),
 	}),
-	s({ trig = ";fa", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
-		t("\\forall"),
+	s({ trig = "geq", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\geqslant"),
 	}),
+	s({ trig = "dif", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\diff"),
+	}),
+	s({ trig = "ee", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
+		t("\\mathrm{e}"),
+	}),
+	s(
+		{ trig = "bin", condition = tex_utils.in_mathzone, snippetType = "autosnippet" },
+		fmta("\\binom{<>}{<>}", {
+			i(1),
+			i(2),
+		})
+	),
 	s(
 		{ trig = "sq", condition = tex_utils.in_mathzone, snippetType = "autosnippet" },
 		fmta("\\sqrt{<>}", {
