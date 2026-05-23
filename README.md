@@ -3,10 +3,10 @@
 A minimal, keyboard-driven Wayland setup. Managed by [chezmoi](https://www.chezmoi.io/).
 
 ## 🖥️ Core Stack
-* **WM:** [niri](https://github.com/niri-wm/niri) (Scrollable-tiling compositor)
-* **Shell:** Zsh (via [Zimfw](https://github.com/zimfw/zimfw)) + [Dank Material Shell](https://github.com/AvengeMedia/DankMaterialShell)
-* **Terminal:** [foot](https://codeberg.org/dnkl/foot) & [ghostty](https://github.com/ghostty-org/ghostty)
-* **Editors:** [Neovim](https://github.com/neovim/neovim) (Full Lua config) & [Zed](https://zed.dev/)
+* **WM:** [niri](https://niri-wm.github.io/niri/index.html) (Scrollable-tiling compositor)
+* **Shell:** Zsh (via [Zimfw](https://github.com/zimfw/zimfw)) + [Dank Material Shell](https://danklinux.com/)
+* **Terminal:** [ghostty](https://ghostty.org/) & [foot](https://codeberg.org/dnkl/foot) 
+* **Editors:** [Neovim](https://neovim.io/) (Full Lua config) & [Zed](https://zed.dev/)
 * **Browsing:** [qutebrowser](https://qutebrowser.org/) (Vim-like)
 * **Media:** MPD + ncmpcpp (High-fidelity local audio)
 * **Reading:** Zathura (Essential for PDF/LaTeX)
