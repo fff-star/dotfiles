@@ -48,6 +48,11 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 font-family="0xProto Nerd Font"
+font-family="Sarasa Mono SC"
 font-size=13
 window-decoration = false
 theme=Catppuccin Mocha
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+adjust-cursor-thickness = 3

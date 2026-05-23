@@ -26,6 +26,10 @@ local function eval_math(_, parent)
 	end
 	local env = { math = math }
 	for k, v in pairs(math) do env[k] = v end
+	env.sqrt = function(n, x)
+		if x then return x ^ (1 / n) end
+		return math.sqrt(n)
+	end
 	local fn, err = load("return " .. expr, "eval_ctx", "t", env)
 	if not fn then
 		return sn(nil, t(err or "invalid"))
