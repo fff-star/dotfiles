@@ -1,3 +1,7 @@
+case $- in 
+    *i*) ;;
+      *) return;;
+esac
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -145,7 +149,7 @@ export FZF_DEFAULT_OPTS=" --style full --preview  'fzf-preview.sh {}' --color=li
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow  --exclude .git'
-export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix -H'
+
 fmpc() {
   local song_position
   song_position=$(mpc -f "%position%) %artist% - %title%" playlist | \
@@ -174,19 +178,11 @@ fzf-noempty () {
 	test -z "$in" && (
 		exit 130
 	) || {
-		ec "$in" | fzf "$@"
+		print -r -- "$in" | fzf "$@"
 	}
 }
-ec () {
-	if [[ -n $ZSH_VERSION ]]
-	then
-		print -r -- "$@"
-	else
-		echo -E -- "$@"
-	fi
-}
 # zsh; needs setopt re_match_pcre. You can, of course, adapt it to your own shell easily.
-tmuxk () {
+tk () {
     local sessions
     sessions="$(tmux ls|fzf --exit-0 --multi)"  || return $?
     local i
@@ -203,7 +199,7 @@ tmuxk () {
 # `tm` will allow you to select your tmux session via fzf.
 # `tm irc` will attach to the irc session (if it exists), else it will create it.
 
-tmuxm() {
+tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
   if [ $1 ]; then
     tmux $change -t "$1" 2>/dev/null || (tmux new-session -d -s $1 && tmux $change -t "$1"); return
@@ -230,7 +226,7 @@ function scroll-top() {
 zle -N clear-screen scroll-top
 
 # usr set 
-export PATH="/home/fff/.local/bin:$PATH"
+export PATH="/home/fff/go/bin:/home/fff/.local/bin:$PATH"
 export EDITOR="nvim"
 # flatpak aliases
 alias obs="flatpak run com.obsproject.Studio"
@@ -243,7 +239,7 @@ alias cp="cp -i"
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+# source the api key
+[[ ! -f ~/.deepseek-api ]] || source ~/.deepseek-api

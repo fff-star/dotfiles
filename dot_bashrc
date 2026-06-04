@@ -1,0 +1,20 @@
+case $- in 
+    *i*) ;;
+      *) return;;
+esac
+# general set
+HISTSIZE=2000
+HISTFILESIZE=40000
+HISTCONTROL=ignoreboth      # ignore identical or empty lines in history
+shopt -s histappend         # append instead of overwrite history
+shopt -s globstar           # enable "**" wildcard for more subdir
+shopt -s checkwinsize       # check window size after each command
+shopt -s autocd             # auto cd by typing path
+set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+# fzf set 
+command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash)"
+command -v eza >/dev/null 2>&1 && alias ls='eza --icons'
+[ -f "/usr/share/bash-completion/bash_completion" ] && . /usr/share/bash-completion/bash_completion
+PS1='\[\033[90;46m\]\u@\h\[\033[00;00m\] \[\033[01;40m\]\w\[\033[00;00m\] \$ '
