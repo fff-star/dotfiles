@@ -4,7 +4,7 @@ A minimal, keyboard-driven Wayland setup. Managed by [chezmoi](https://www.chezm
 
 ## 🖥️ Core Stack
 * **WM:** [niri](https://niri-wm.github.io/niri/index.html) (Scrollable-tiling compositor)
-* **Shell:** Zsh (via [Zimfw](https://github.com/zimfw/zimfw)) + [Dank Material Shell](https://danklinux.com/)
+* **Shell:** Zsh (via [Zimfw](https://github.com/zimfw/zimfw)) + Bash
 * **Terminal:** [ghostty](https://ghostty.org/) & [foot](https://codeberg.org/dnkl/foot) 
 * **Editors:** [Neovim](https://neovim.io/) (Full Lua config) & [Zed](https://zed.dev/)
 * **Browsing:** [qutebrowser](https://qutebrowser.org/) (Vim-like)
