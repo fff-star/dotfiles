@@ -15,6 +15,24 @@ bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 # fzf set 
 command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash)"
-command -v eza >/dev/null 2>&1 && alias ls='eza --icons'
+
+alias rm="rm -I";
+alias cp="cp -i";
+alias mv="mv -i";
+alias ls='ls -F --color=auto --group-directories-first'
+alias diff="diff --color=auto"
+alias vdiff="nvim -d"
+alias grep="grep --color=auto"
+alias less="less -i -F"
+
+# set the editor
+if command -v nvim >/dev/null 2>&1; then
+    export EDITOR=nvim
+    export VISUAL=nvim
+elif command -v vim >/dev/null 2>&1; then
+    export EDITOR=vim
+    export VISUAL=vim
+fi
+
 [ -f "/usr/share/bash-completion/bash_completion" ] && . /usr/share/bash-completion/bash_completion
 PS1='\[\033[90;46m\]\u@\h\[\033[00;00m\] \[\033[01;40m\]\w\[\033[00;00m\] \$ '
