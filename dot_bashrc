@@ -11,6 +11,10 @@ shopt -s globstar           # enable "**" wildcard for more subdir
 shopt -s checkwinsize       # check window size after each command
 shopt -s autocd             # auto cd by typing path
 set -o vi
+clear-screen() {
+    printf '\e[%dS' $((LINES-1))
+    tput -x clear
+}
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 # fzf set 
