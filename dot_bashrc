@@ -42,14 +42,14 @@ fi
 
 [ -f "/usr/share/bash-completion/bash_completion" ] && . /usr/share/bash-completion/bash_completion
 
-# --- p10k 风格提示符（对齐当前 p10k 配色） ---
+# p10k style prompt
 [ -f /usr/share/git-core/contrib/completion/git-prompt.sh ] && \
     . /usr/share/git-core/contrib/completion/git-prompt.sh
 
 __prompt_command() {
     local ret=$?
 
-    # context 段：root 加粗黄，SSH 浅色；本地普通用户隐藏
+    # context 
     local ctx=''
     if (( EUID == 0 )); then
         ctx='\[\e[1;38;5;178m\]\u@\h\[\e[0m\] '
@@ -57,7 +57,7 @@ __prompt_command() {
         ctx='\[\e[38;5;180m\]\u@\h\[\e[0m\] '
     fi
 
-    # dir 段：仿 p10k（≤2 段全为 anchor 蓝色粗体；更多段时父目录灰）
+    # dir 
     local dir p parent base slashes
     p=${PWD/#$HOME/\~}
     slashes=${p//[^\/]/}
@@ -69,7 +69,7 @@ __prompt_command() {
         dir="\[\e[38;5;103m\]$parent/\[\e[0m\]\[\e[1;38;5;39m\]$base\[\e[0m\]"
     fi
 
-    # vcs 段：干净绿、改动黄、未跟踪蓝（近似 p10k）
+    # vcs 
     local git=''
     if command -v __git_ps1 >/dev/null 2>&1; then
         GIT_PS1_SHOWDIRTYSTATE=1
@@ -85,7 +85,7 @@ __prompt_command() {
         fi
     fi
 
-    # prompt_char 段：成功绿 ❯，失败红 ❯（与 p10k 一致）
+    # prompt_char 
     local color=76
     (( ret != 0 )) && color=196
     PS1="${ctx}${dir}${git} \[\e[38;5;${color}m\]❯\[\e[0m\] "
