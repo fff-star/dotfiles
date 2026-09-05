@@ -5,10 +5,11 @@ esac
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
+#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+# set the zsh-vi-mode plugin 
 # Start configuration added by Zim Framework install {{{
 #
 # User configuration sourced by interactive shells
@@ -144,7 +145,7 @@ unset key
 #zoxide
 eval "$(zoxide init zsh)"
 # fzf
-eval "$(fzf --zsh)"
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS=" --style full --preview  'fzf-preview.sh {}' --color=light "
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git --strip-cwd-prefix'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -244,3 +245,14 @@ alias less="less -i -F"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 # source the api key
 [[ ! -f ~/.deepseek-api ]] || source ~/.deepseek-api
+[[ ! -f ~/.context7-api ]] || source ~/.context7-api
+[[ ! -f ~/.opencode-api ]] || source ~/.opencode-api
+
+# bun completions
+[ -s "/home/fff/.bun/_bun" ] && source "/home/fff/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+#npm 
+export PATH="$HOME/.npm-global/bin:$PATH"

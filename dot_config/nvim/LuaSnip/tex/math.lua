@@ -178,7 +178,7 @@ return {
 		t("\\psi"),
 	}),
 	s({ trig = ";P", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
-		t("\\psi"),
+		t("\\Psi"),
 	}),
 	s({ trig = ";s", snippetType = "autosnippet", condition = tex_utils.in_mathzone }, {
 		t("\\sigma"),

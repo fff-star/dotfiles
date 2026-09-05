@@ -3,8 +3,8 @@ case $- in
       *) return;;
 esac
 # general set
-HISTSIZE=2000
-HISTFILESIZE=40000
+HISTSIZE=4000
+HISTFILESIZE=4000
 HISTCONTROL=ignoreboth      # ignore identical or empty lines in history
 shopt -s histappend         # append instead of overwrite history
 shopt -s globstar           # enable "**" wildcard for more subdir
@@ -12,11 +12,11 @@ shopt -s checkwinsize       # check window size after each command
 shopt -s autocd             # auto cd by typing path
 set -o vi
 clear-screen() {
-    printf '\e[%dS' $((LINES-1))
+    printf '\e[%dS' $(( ${LINES:-$(tput lines)} - 1 ))
     tput -x clear
 }
-bind -m vi-command 'Control-l: clear-screen'
-bind -m vi-insert 'Control-l: clear-screen'
+bind -m vi-command -x '"\C-l": clear-screen'
+bind -m vi-insert  -x '"\C-l": clear-screen'
 # fzf set 
 command -v fzf >/dev/null 2>&1 && eval "$(fzf --bash)"
 
@@ -24,6 +24,8 @@ alias rm="rm -I";
 alias cp="cp -i";
 alias mv="mv -i";
 alias ls='ls -F --color=auto --group-directories-first'
+alias ll='ls -lh'
+alias l='ll -A'
 alias diff="diff --color=auto"
 alias vdiff="nvim -d"
 alias grep="grep --color=auto"
@@ -39,4 +41,53 @@ elif command -v vim >/dev/null 2>&1; then
 fi
 
 [ -f "/usr/share/bash-completion/bash_completion" ] && . /usr/share/bash-completion/bash_completion
-PS1='\[\033[90;46m\]\u@\h\[\033[00;00m\] \[\033[01;40m\]\w\[\033[00;00m\] \$ '
+
+# --- p10k 风格提示符（对齐当前 p10k 配色） ---
+[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ] && \
+    . /usr/share/git-core/contrib/completion/git-prompt.sh
+
+__prompt_command() {
+    local ret=$?
+
+    # context 段：root 加粗黄，SSH 浅色；本地普通用户隐藏
+    local ctx=''
+    if (( EUID == 0 )); then
+        ctx='\[\e[1;38;5;178m\]\u@\h\[\e[0m\] '
+    elif [[ -n $SSH_CONNECTION || -n $SSH_TTY ]]; then
+        ctx='\[\e[38;5;180m\]\u@\h\[\e[0m\] '
+    fi
+
+    # dir 段：仿 p10k（≤2 段全为 anchor 蓝色粗体；更多段时父目录灰）
+    local dir p parent base slashes
+    p=${PWD/#$HOME/\~}
+    slashes=${p//[^\/]/}
+    parent=${p%/*}
+    base=${p##*/}
+    if [[ $p == '~' || ${#slashes} -le 1 ]]; then
+        dir="\[\e[1;38;5;39m\]$p\[\e[0m\]"
+    else
+        dir="\[\e[38;5;103m\]$parent/\[\e[0m\]\[\e[1;38;5;39m\]$base\[\e[0m\]"
+    fi
+
+    # vcs 段：干净绿、改动黄、未跟踪蓝（近似 p10k）
+    local git=''
+    if command -v __git_ps1 >/dev/null 2>&1; then
+        GIT_PS1_SHOWDIRTYSTATE=1
+        GIT_PS1_SHOWUNTRACKEDFILES=1
+        local gs
+        gs=$(__git_ps1 "%s" 2>/dev/null)
+        if [[ -n $gs ]]; then
+            case "$gs" in
+                *'*'*|*'+'*) git=" \[\e[38;5;178m\]${gs}\[\e[0m\]";;
+                *'?'*)       git=" \[\e[38;5;39m\]${gs}\[\e[0m\]";;
+                *)           git=" \[\e[38;5;76m\]${gs}\[\e[0m\]";;
+            esac
+        fi
+    fi
+
+    # prompt_char 段：成功绿 ❯，失败红 ❯（与 p10k 一致）
+    local color=76
+    (( ret != 0 )) && color=196
+    PS1="${ctx}${dir}${git} \[\e[38;5;${color}m\]❯\[\e[0m\] "
+}
+PROMPT_COMMAND=__prompt_command
