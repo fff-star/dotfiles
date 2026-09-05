@@ -2,21 +2,16 @@
 
 Personal dotfiles for a minimal, keyboard-driven Wayland setup, managed by [chezmoi](https://www.chezmoi.io/).
 
-## 🔗 Project
-
-- GitHub: <https://github.com/fff-star/dotfiles>
-- Codeberg: <https://codeberg.org/fff-star/dotfiles>
-
 ## 🖥️ Core Stack
 
 - **WM:** [niri](https://niri-wm.github.io/niri/index.html) — scrollable-tiling compositor
-- **Shell:** Zsh ([Zimfw](https://github.com/zimfw/zimfw)) + Bash + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
+- **Shell:** Zsh ([Zimfw](https://github.com/zimfw/zimfw)) + [Bash](https://www.gnu.org/software/bash/) + [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 - **Terminal:** [Ghostty](https://ghostty.org/) & [foot](https://codeberg.org/dnkl/foot)
 - **Editors:** [Neovim](https://neovim.io/) (Lua config) & [Zed](https://zed.dev/)
 - **Browser:** [qutebrowser](https://qutebrowser.org/)
-- **Media:** MPD + ncmpcpp
-- **PDF/LaTeX:** Zathura
-- **Multiplexer:** tmux (catppuccin)
+- **Media:** [MPD](https://www.musicpd.org/) + [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp)
+- **PDF/LaTeX:** [Zathura](https://pwmt.org/projects/zathura/)
+- **Multiplexer:** [tmux](https://github.com/tmux/tmux) ([catppuccin](https://github.com/catppuccin/tmux))
 
 ## 🚀 Quick Start
 
