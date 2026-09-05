@@ -2,6 +2,11 @@
 
 Personal dotfiles for a minimal, keyboard-driven Wayland setup, managed by [chezmoi](https://www.chezmoi.io/).
 
+## 🔗 Project
+
+- GitHub: <https://github.com/fff-star/dotfiles>
+- Codeberg: <https://codeberg.org/fff-star/dotfiles>
+
 ## 🖥️ Core Stack
 
 - **WM:** [niri](https://niri-wm.github.io/niri/index.html) — scrollable-tiling compositor
